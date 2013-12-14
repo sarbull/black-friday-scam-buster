@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131214150925) do
+ActiveRecord::Schema.define(version: 20131214175857) do
 
   create_table "histories", force: true do |t|
     t.float    "price"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20131214150925) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "shop_id"
+    t.string   "image"
   end
 
   create_table "shops", force: true do |t|
