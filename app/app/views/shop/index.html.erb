@@ -1,6 +1,6 @@
 <h1>Shops</h1>
-<ul>
+<ul class="shop">
   <% @shops.each do |shop| %>
-    <li><%= link_to shop.name, shop %></li>
+    <li><%= link_to image_tag(shop.logo, :class => "img-rounded img-polaroid"), shop %></li>
   <% end %>
 </ul>

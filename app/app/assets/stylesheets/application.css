@@ -14,8 +14,13 @@
 
 body {
   margin-bottom: 200px;
+  background-color: #000000;
 }
 
 .container {
   width:800px;
+}
+
+.breadcrumb {
+  background-color: #ffffff;
 }

@@ -1,5 +1,22 @@
+<% javascript_include_tag "history", "canvasjs.min"%>
+
 <h1><%= @product.name %></h1>
 <span class="link"><%= link_to @product.link, @product.link %></span> <br>
 <span class="price"><%=  """#{@product.price} #{@product.currency}""" %></span> <br>
 <span class="image"><img src="<%= @product.image %>" alt="<%= @product.name %>"></span> <br>
-<span class="permalink"><input type="text" value="<%= shop_product_url %>" size="50"></span>
+<span class="permalink"><input type="text" value="<%= shop_product_url %>"></span>
+<hr>
+<h1>Price history</h1>
+<script>
+ $(document).ready(function(){
+  $.get( "<%= shop_product_url %>/history.json", function( data ) {
+    load_chart(data);
+  });
+});
+</script>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<style>
+body {
+  background-color:#ffffff;
+}
+</style>
