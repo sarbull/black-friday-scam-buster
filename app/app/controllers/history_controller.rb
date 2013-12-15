@@ -5,9 +5,6 @@ class HistoryController < ApplicationController
     shop = Shop.find(params[:shop_id])
     @product = shop.products.find(params[:product_id])
     @history = @product.histories 
-    
-
-
     respond_to do |format|
       format.html
       format.json do
@@ -17,8 +14,5 @@ class HistoryController < ApplicationController
         render xml: @history
       end
     end
-
-
   end
-
 end

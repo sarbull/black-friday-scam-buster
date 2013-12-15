@@ -28,5 +28,4 @@ class ShopController < ApplicationController
       end
     end
   end
-
 end

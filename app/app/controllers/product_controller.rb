@@ -2,8 +2,6 @@ class ProductController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    # require 'pry'
-    # binding.pry
     @products = Shop.find(params[:shop_id]).products
     respond_to do |format|
       format.html
