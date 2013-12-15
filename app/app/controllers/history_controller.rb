@@ -1,6 +1,5 @@
 class HistoryController < ApplicationController
-
-# /shop/:shop_id/product/:product_id/history(.:format)
+  before_filter :authenticate_user!
 
   def index
     shop = Shop.find(params[:shop_id])

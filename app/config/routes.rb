@@ -7,12 +7,14 @@ App::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'shop#index'
 
+  
   resources :shop do
     resources :product do
       resources :history
     end
   end
 
+  resources :product
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,5 +1,6 @@
 class ProductController < ApplicationController
-
+  before_filter :authenticate_user!
+  
   def index
     # require 'pry'
     # binding.pry
@@ -16,8 +17,10 @@ class ProductController < ApplicationController
   end
 
   def show
-    shop = Shop.find(params[:shop_id])
-    @product = shop.products.find(params[:id])
+    @shop = Shop.find(params[:shop_id])
+    @product = @shop.products.find(params[:id])
+    add_breadcrumb @shop.name, shop_path(@shop)
+    add_breadcrumb @product.name, shop_product_path
     respond_to do |format|
       format.html
       format.json do

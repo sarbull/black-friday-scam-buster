@@ -1,4 +1,5 @@
 class ShopController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
     @shops = Shop.all
@@ -15,6 +16,8 @@ class ShopController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @products = @shop.products
+    add_breadcrumb @shop.name, shop_path
     respond_to do |format|
       format.html
       format.json do
